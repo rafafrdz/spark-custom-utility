@@ -1,9 +1,9 @@
-package dev.rafafrdz.sql.types
+package org.malaka.dev.sql.types
 
-import dev.rafafrdz.core.session.Sparkable
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types.{ArrayType, StructField, StructType}
 import org.apache.spark.sql.{DataFrame, Row}
+import org.malaka.dev.core.session.Sparkable
 
 import scala.annotation.tailrec
 import scala.language.higherKinds

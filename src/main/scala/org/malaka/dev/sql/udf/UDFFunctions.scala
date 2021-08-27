@@ -1,10 +1,10 @@
-package dev.rafafrdz.sql.udf
+package org.malaka.dev.sql.udf
 
-import dev.rafafrdz.core.session.Sparkable
 import org.apache.spark.sql.Column
 import org.apache.spark.sql.expressions.UserDefinedFunction
 import org.apache.spark.sql.functions.{col, udf}
 import org.apache.spark.sql.types.DataType
+import org.malaka.dev.core.session.Sparkable
 
 import scala.reflect.ClassTag
 

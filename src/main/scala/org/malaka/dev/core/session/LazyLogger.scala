@@ -1,4 +1,4 @@
-package dev.rafafrdz.core.session
+package org.malaka.dev.core.session
 
 import org.slf4j.{Logger, LoggerFactory}
 
