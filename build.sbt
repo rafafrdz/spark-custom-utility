@@ -8,4 +8,6 @@ val sparkVersion = "2.2.1"
 libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion
 libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion
 libraryDependencies += "org.slf4j" % "slf4j-api" % "1.7.30"
+libraryDependencies += "org.json4s" %% "json4s-jackson" % "4.0.3"
+
 //idePackagePrefix := Some("dev.rafafrdz")
