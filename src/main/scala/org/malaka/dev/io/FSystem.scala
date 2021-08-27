@@ -12,9 +12,9 @@ object FSystem extends HadoopFileSystem with Sparkable {
 
   def delete(path: String, recursive: Boolean = false): Unit = fs.delete(hdfs(path), recursive)
 
-  def mv(path: String, otherPath: String): Boolean = mover(path, otherPath)
+  def mv(path: String, otherPath: String): Boolean = move(path, otherPath)
 
-  def mover(path: String, otherPath: String): Boolean =
+  def move(path: String, otherPath: String): Boolean =
     Try {
       require(!isDirectory(path), "Path must be a file path")
       lazy val move: Boolean = fs.rename(hdfs(path), hdfs(otherPath))
