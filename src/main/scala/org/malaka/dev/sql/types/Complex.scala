@@ -38,11 +38,12 @@ object Complex extends Sparkable {
    * Todo. In the future make it generic to be deeper on a complex field which contain
    * todo. other complex field and so on; and be deeper on multiple fields */
 
-    private val lambdaRow = (row: Row, field: String) =>
-      row.getSeq[Row](row.fieldIndex(field)).map { r =>
-        val lengthRow: Int = r.length
-        (0 until lengthRow).map(i => r.getAs[Any](i))
-      }
+  private val lambdaRow = (row: Row, field: String) =>
+    row.getSeq[Row](row.fieldIndex(field)).map { r =>
+      val lengthRow: Int = r.length
+      (0 until lengthRow).map(i => r.getAs[Any](i))
+    }
+
   def manualExplode(df: DataFrame, field: String): DataFrame = {
     val restFields: Array[String] = df.schema.fieldNames.filterNot(_ == field)
     val schemaExploded: StructType = complexExplode(df, field)
@@ -64,7 +65,7 @@ object Complex extends Sparkable {
     case ls: List[_] => flatten(ls)
     case h: A => List(h)
   }
-//  def flattenAny[T](xs: List[T]): List[Any] = flatten[T,Any](xs)
+  //  def flattenAny[T](xs: List[T]): List[Any] = flatten[T,Any](xs)
 
 
 }
