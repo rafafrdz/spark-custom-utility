@@ -1,7 +1,7 @@
-package org.malaka.dev.io
+package org.malaka.dev.fs
 
 import org.malaka.dev.core.session.Sparkable
-import org.malaka.dev.io.FStatus.{getChild, status, traverseStatuses}
+import org.malaka.dev.fs.FStatus.{getChild, status, traverseStatuses}
 
 import scala.util.{Failure, Success, Try}
 

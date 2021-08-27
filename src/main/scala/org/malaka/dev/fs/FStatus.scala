@@ -1,13 +1,13 @@
-package org.malaka.dev.io
+package org.malaka.dev.fs
 
 import org.apache.hadoop.fs.FileStatus
 import org.malaka.dev.core.session.Sparkable
-import org.malaka.dev.io.FSystem.lsTree
+import org.malaka.dev.fs.FSystem.lsTree
 
 import scala.annotation.tailrec
 import scala.util.{Failure, Success, Try}
 
-private[io] object FStatus extends HadoopFileSystem with Sparkable{
+private[fs] object FStatus extends HadoopFileSystem with Sparkable{
 
   def trazeStatus(father: FileStatus, onlyFiles: Boolean = true): Array[String] =
     getChild(father) match {
