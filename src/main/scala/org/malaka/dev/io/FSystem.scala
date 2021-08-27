@@ -14,10 +14,10 @@ object FSystem extends HadoopFileSystem with Sparkable {
 
   def mv(path: String, otherPath: String): Boolean = mover(path, otherPath)
 
-  def mover(path: String, otherPath: String): Boolean = {
-    val isFile: Boolean = !isDirectory(path)
-    lazy val move: Boolean = fs.rename(hdfs(path), hdfs(otherPath))
-    if (isFile) Try {
+  def mover(path: String, otherPath: String): Boolean =
+    Try {
+      require(!isDirectory(path), "Path must be a file path")
+      lazy val move: Boolean = fs.rename(hdfs(path), hdfs(otherPath))
       delete(otherPath)
       move
       delete(path)
@@ -28,8 +28,6 @@ object FSystem extends HadoopFileSystem with Sparkable {
         logger.error(exception.getMessage)
         false
     }
-    else isFile
-  }
 
   def mkdirs(path: String, overwrite: Boolean = false): Unit = {
     if (overwrite) delete(path, recursive = true)
